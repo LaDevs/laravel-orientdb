@@ -1,0 +1,32 @@
+{
+    "name": "ladevs/laravel-orientdb",
+    "autoload":{
+        "psr-4": {
+            "Ladevs\\Laravel-Orientdb\\": "src/Ladevs/Orientdb"
+        }
+    },
+    "description": "An Eloquent model and Query builder with support for OrientDB, using the original Laravel API",
+    "type": "library",
+    "require": {
+        "illuminate/database": "^5.4",
+        "illuminate/support": "^5.4",
+        "illuminate/container": "^5.4",
+        "illuminate/events": "^5.4",
+        "ostico/phporient": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "autoload-dev":{
+        "psr-4": {
+            "Illuminate\\Database\\": "vendor/illuminate/database"
+        }
+    },
+    "license": "Apache v2.0",
+    "authors": [
+        {
+            "name": "Andrew Hackley",
+            "email": "hackley2@gmail.com"
+        }
+    ]
+}
