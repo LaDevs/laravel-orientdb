@@ -38,7 +38,7 @@ class OrientdbServiceProvider extends ServiceProvider
         // Add connector for queue support.
         $this->app->resolving('queue', function ($queue) {
             /** @var QueueManager $queue */
-            $queue->addConnector('mongodb', function () {
+            $queue->addConnector('orientdb', function () {
                 return new OrientConnector($this->app['db']);
             });
         });

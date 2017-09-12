@@ -39,14 +39,14 @@ class Connection extends BaseConnection implements ConnectionInterface
     {
         $this->config = $config;
 
-        // You can pass options directly to the MongoDB constructor
-        $options = array_get($config, 'options', []);
+        // You can pass options directly to the OrientDB constructor
+//        $options = array_get($config, 'options', []);
 
         // Create the connection
         $this->createConnection($config);
 
         // Select database
-        $this->db = $this->getConnection()->dbOpen($config['database']);
+        $this->db = $this->getConnection()->dbOpen($config['database'], $config['username'], $config['password']);
 
 //        $this->useDefaultPostProcessor();
 //        $this->useDefaultSchemaGrammar();
@@ -57,12 +57,10 @@ class Connection extends BaseConnection implements ConnectionInterface
         $this->setConnection(new PhpOrient());
         $this->getConnection()
             ->configure([
-                'username' => $config['username'],
-                'password' => $config['password'],
                 'hostname' => $config['host'],
                 'port'     => $config['port'],
             ])
-        ;
+            ->connect($config['serverUsername'], $config['serverPassword']);
     }
 
     /**
